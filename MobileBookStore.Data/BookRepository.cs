@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MobileBookStore.Model
+namespace MobileBookStore.Data
 {
-    public class User
+    public class BookRepository
     {
+
     }
 }
