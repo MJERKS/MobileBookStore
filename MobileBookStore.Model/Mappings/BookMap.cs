@@ -9,14 +9,12 @@ using MobileBookStore.Model.Entities;
 
 namespace MobileBookStore.Model.Mappings
 {
-    class BookMap : ClassMap<Book>
+    class BookMap : PersistentEntityMapBase<Book>
     {
         public BookMap()
         {
             Schema("dbo");
             Table("Book");
-
-            Id(x => x.Id).GeneratedBy.Identity();
 
             Map(x => x.PublisherId).Not.Nullable();
             Map(x => x.Author).Not.Nullable();
@@ -24,7 +22,6 @@ namespace MobileBookStore.Model.Mappings
             Map(x => x.FilePath).Not.Nullable();
             Map(x => x.PageCount).Not.Nullable();
             Map(x => x.Price).Not.Nullable();
-            Map(x => x.CreatedOn).Not.Nullable();
         }
     }
 }

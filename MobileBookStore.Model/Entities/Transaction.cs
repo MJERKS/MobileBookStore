@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MobileBookStore.Model.Entities
 {
-    class Transaction
+    class Transaction : PersistentEntityBase<Transaction>
     {
         public virtual int Id { get; set; }
 
@@ -15,7 +15,5 @@ namespace MobileBookStore.Model.Entities
         public virtual int BookId { get; set; }
 
         public virtual Decimal Amount { get; set; }
-
-        public virtual DateTime CreatedOn { get; set; }
     }
 }

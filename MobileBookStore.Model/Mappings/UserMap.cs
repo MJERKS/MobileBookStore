@@ -8,28 +8,17 @@ using System.Threading.Tasks;
 
 namespace MobileBookStore.Model.Mappings
 {
-    class UserMap : ClassMap<User>
+    class UserMap : PersistentEntityMapBase<User>
     {
         public UserMap()
         {
             Schema("dbo");
             Table("User");
 
-            Id(x => x.Id).GeneratedBy.Identity();
-
             Map(x => x.UserName).Not.Nullable();
             Map(x => x.PasswordHash).Not.Nullable();
             Map(x => x.RealName).Not.Nullable();
             Map(x => x.Email).Not.Nullable();
-            Map(x => x.CreatedOn).Not.Nullable();
-
-            References(x => x.Word).Column("WordId").Cascade.SaveUpdate();
-
-            HasManyToMany(x => x.Tags)
-                .Table("Crosswords_Tags")
-                .ParentKeyColumn("CrosswordId")
-                .ChildKeyColumn("TagId")
-                .Cascade.SaveUpdate();
         }
     }
 }
