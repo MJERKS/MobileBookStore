@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MobileBookStore.Model.Entities
 {
-    class Book : PersistentEntityBase<Book>
+    public class Book : PersistentEntityBase<Book>
     {
-        public virtual int Id { get; set; }
-
         public virtual int PublisherId { get; set; }
 
         public virtual String Author { get; set; }

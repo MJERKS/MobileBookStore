@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataContracts
+namespace MobileBookStore.DataContracts
 {
-    interface IBookRepository
+    interface IUserRepository
     {
     }
 }

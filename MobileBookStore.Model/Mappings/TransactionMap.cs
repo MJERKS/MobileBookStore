@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MobileBookStore.Model.Mappings
 {
-    class TransactionMap : PersistentEntityMapBase<Transaction>
+    public class TransactionMap : PersistentEntityMapBase<Transaction>
     {
         public TransactionMap()
         {

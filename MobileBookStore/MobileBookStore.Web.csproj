@@ -179,6 +179,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Config\appSettings.config" />
+    <Content Include="Config\connectionStrings.config" />
+    <Content Include="Config\hibernate-configuration.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -231,6 +234,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataContracts\MobileBookStore.DataContracts.csproj">
+      <Project>{0906da04-fbf2-440e-92d2-72025e45e4a0}</Project>
+      <Name>MobileBookStore.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Data\MobileBookStore.Data.csproj">
+      <Project>{31275ecd-4de4-4b5e-b178-4c502b1cdff9}</Project>
+      <Name>MobileBookStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Model\MobileBookStore.Model.csproj">
+      <Project>{5ed31eaa-0e56-474e-bbfd-2de480a57657}</Project>
+      <Name>MobileBookStore.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Services\MobileBookStore.Service.csproj">
+      <Project>{18caea81-524b-40de-b0c6-ba6757cf56cc}</Project>
+      <Name>MobileBookStore.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceContracts\MobileBookStore.ServiceContracts.csproj">
+      <Project>{acf4520d-ce02-49c3-9ac1-0e2b0b28d2df}</Project>
+      <Name>MobileBookStore.ServiceContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

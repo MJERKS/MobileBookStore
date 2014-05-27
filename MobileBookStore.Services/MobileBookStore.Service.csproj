@@ -43,9 +43,12 @@
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Mappings\" />
+    <ProjectReference Include="..\DataContracts\MobileBookStore.DataContracts.csproj">
+      <Project>{0906da04-fbf2-440e-92d2-72025e45e4a0}</Project>
+      <Name>MobileBookStore.DataContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,8 +8,6 @@ namespace MobileBookStore.Model.Entities
 {
     public class User : PersistentEntityBase<User>
     {
-        public virtual int Id { get; set; }
-
         public virtual String UserName { get; set; }
 
         public virtual String PasswordHash { get; set; }

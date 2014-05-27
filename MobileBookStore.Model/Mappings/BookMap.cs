@@ -9,7 +9,7 @@ using MobileBookStore.Model.Entities;
 
 namespace MobileBookStore.Model.Mappings
 {
-    class BookMap : PersistentEntityMapBase<Book>
+    public class BookMap : PersistentEntityMapBase<Book>
     {
         public BookMap()
         {

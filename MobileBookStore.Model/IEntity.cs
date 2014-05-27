@@ -10,10 +10,6 @@ namespace MobileBookStore.Model
     public interface IPersistentEntity : IEntity
     {
         DateTime CreatedOn { get; set; }
-
-        DateTime? ModifiedOn { get; set; }
-
-        DateTime? DeletedOn { get; set; }
     }
 
     public interface IEntity<TId> : IEntity where TId : struct

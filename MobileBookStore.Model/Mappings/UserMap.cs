@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MobileBookStore.Model.Mappings
 {
-    class UserMap : PersistentEntityMapBase<User>
+    public class UserMap : PersistentEntityMapBase<User>
     {
         public UserMap()
         {
