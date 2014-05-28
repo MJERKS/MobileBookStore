@@ -14,9 +14,17 @@ namespace MobileBookStore.Model.Entities
 
         public virtual IList<Book> PublishedBooks { get; set; }
 
+        public virtual User User { get; set; }
+
         public Publisher()
         {
             PublishedBooks = new List<Book>();
+        }
+
+        public virtual void AddPublishedBook(Book publishedBook) 
+        {
+            publishedBook.PublisherId = this.Id;
+            PublishedBooks.Add(publishedBook);
         }
     }
 }
