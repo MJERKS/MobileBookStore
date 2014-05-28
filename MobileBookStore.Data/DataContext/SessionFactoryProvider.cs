@@ -6,6 +6,7 @@ using MobileBookStore.DataContracts;
 using MobileBookStore.Model;
 using NHibernate;
 using NHibernate.Event;
+using NHibernate.Tool.hbm2ddl;
 
 namespace MobileBookStore.Data.DataContext
 {
@@ -52,19 +53,21 @@ namespace MobileBookStore.Data.DataContext
             //var saveOrUpdateEventListener = new SaveOrUpdateEventListener(eventListenerHelper);
             //var deleteEventListener = new DeleteEventListener(eventListenerHelper);
 
-            return
-                Fluently.Configure()
-                        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<IEntity>()
-                                        .Conventions.Add(ForeignKey.EndsWith("Id"))
-                                        .Conventions.Add<EnumConvention>())
+            var configuration = Fluently.Configure()
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<IEntity>()
+                    .Conventions.Add(ForeignKey.EndsWith("Id"))
+                    .Conventions.Add<EnumConvention>())
 
-                        //.ExposeConfiguration(c => c.SetListener(ListenerType.Delete, deleteEventListener))
-                        //.ExposeConfiguration(c => c.SetListener(ListenerType.SaveUpdate, saveOrUpdateEventListener))
-                        //.ExposeConfiguration(c => c.SetListener(ListenerType.Save, saveOrUpdateEventListener))
-                        //.ExposeConfiguration(c => c.SetListener(ListenerType.Update, saveOrUpdateEventListener))
+                //.ExposeConfiguration(c => c.SetListener(ListenerType.Delete, deleteEventListener))
+                //.ExposeConfiguration(c => c.SetListener(ListenerType.SaveUpdate, saveOrUpdateEventListener))
+                //.ExposeConfiguration(c => c.SetListener(ListenerType.Save, saveOrUpdateEventListener))
+                //.ExposeConfiguration(c => c.SetListener(ListenerType.Update, saveOrUpdateEventListener))
 
-                        .BuildConfiguration()
-                        .BuildSessionFactory();
+                .BuildConfiguration();
+            SchemaMetadataUpdater.QuoteTableAndColumns(configuration);
+
+            return configuration.BuildSessionFactory();
+
         }
     }
 }

@@ -28,7 +28,7 @@ namespace MobileBookStore.Tests.Entities
                 Email = "test@email.com",
                 UserName = "test@email.com",
                 PasswordHash = "Something",
-                RealName = "Test Name",
+                RealName = "TestName",
                 CreatedOn = new DateTime(2010,1,1)
             };
             repository.Save(user);
@@ -56,6 +56,8 @@ namespace MobileBookStore.Tests.Entities
 
             Assert.AreEqual(retrievedUser.RealName, user.RealName);
 
+            repository.Delete(user);
+            repository.Delete(book);
         }
     }
 }

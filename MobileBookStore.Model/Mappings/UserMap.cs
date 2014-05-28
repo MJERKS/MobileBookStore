@@ -27,8 +27,8 @@ namespace MobileBookStore.Model.Mappings
             HasMany(x => x.Transactions)
                 .Cascade.All();
 
-            References(x => x.Publisher)
-                .Cascade.All();
+            //References(x => x.Publisher)
+            //    .Cascade.All();
         }
     }
 }
