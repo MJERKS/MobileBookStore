@@ -29,13 +29,15 @@ namespace MobileBookStore.Tests.Entities
                 UserName = "test@email.com",
                 PasswordHash = "Something",
                 RealName = "Test Name",
+                CreatedOn = new DateTime(2010,1,1)
             };
             repository.Save(user);
 
             var publisher = new Publisher()
             {
                 CompanyName = "",
-                UserId = user.Id
+                UserId = user.Id,
+                CreatedOn = new DateTime(2010, 1, 1)
             };
             repository.Save(publisher);
 
@@ -45,7 +47,8 @@ namespace MobileBookStore.Tests.Entities
                 FilePath = "file-path",
                 PageCount = 12,
                 Price = 10,
-                Title = "test"
+                Title = "test",
+                CreatedOn = new DateTime(2010, 1, 1)
             };
             repository.Save(book);
 
