@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MobileBookStore.Data.DataContext;
 using MobileBookStore.DataContracts;
 using MobileBookStore.Data;
 using MobileBookStore.Model.Entities;
@@ -12,6 +12,13 @@ namespace MobileBookStore.Controllers
 {
     public class HomeController : Controller
     {
+        public IRepository repository { get; set; }
+
+        public HomeController(IRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -19,8 +26,12 @@ namespace MobileBookStore.Controllers
 
         public ActionResult About()
         {
-            var bookRepo = new Repository();
-            var book = bookRepo.FirstOrDefault<Book>(x => x.Id == 1);
+            if (repository == null)
+            {
+                ViewBag.Message = "repo is null";
+                return View();
+            }
+            var book = repository.FirstOrDefault<Book>(x => x.Id == 1);
 
             ViewBag.Message = book.ToString();
 
