@@ -63,7 +63,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataContracts\MobileBookStore.DataContracts.csproj">
+    <ProjectReference Include="..\MobileBookStore.DataContracts\MobileBookStore.DataContracts.csproj">
       <Project>{0906da04-fbf2-440e-92d2-72025e45e4a0}</Project>
       <Name>MobileBookStore.DataContracts</Name>
     </ProjectReference>
