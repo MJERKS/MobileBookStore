@@ -37,6 +37,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -84,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BookTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -94,6 +98,26 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MobileBookStore.DataContracts\MobileBookStore.DataContracts.csproj">
+      <Project>{0906DA04-FBF2-440E-92D2-72025E45E4A0}</Project>
+      <Name>MobileBookStore.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Data\MobileBookStore.Data.csproj">
+      <Project>{31275ECD-4DE4-4B5E-B178-4C502B1CDFF9}</Project>
+      <Name>MobileBookStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Model\MobileBookStore.Model.csproj">
+      <Project>{5ED31EAA-0E56-474E-BBFD-2DE480A57657}</Project>
+      <Name>MobileBookStore.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.ServiceContracts\MobileBookStore.ServiceContracts.csproj">
+      <Project>{ACF4520D-CE02-49C3-9AC1-0E2B0B28D2DF}</Project>
+      <Name>MobileBookStore.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobileBookStore.Services\MobileBookStore.Service.csproj">
+      <Project>{18CAEA81-524B-40DE-B0C6-BA6757CF56CC}</Project>
+      <Name>MobileBookStore.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MobileBookStore\MobileBookStore.Web.csproj">
       <Project>{76EBB555-6D91-4C49-BB88-EE7BC5E0979D}</Project>
       <Name>MobileBookStore.Web</Name>

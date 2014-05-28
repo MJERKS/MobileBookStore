@@ -1,3 +1,4 @@
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 using MobileBookStore.Data;
 using MobileBookStore.Data.DataContext;
@@ -5,6 +6,7 @@ using MobileBookStore.DataContracts;
 using MobileBookStore.ServiceContracts;
 using MobileBookStore.Services;
 using MobileBookStore.Web;
+using Ninject.Planning.Bindings.Resolvers;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MobileBookStore.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MobileBookStore.App_Start.NinjectWebCommon), "Stop")]
@@ -40,7 +42,12 @@ namespace MobileBookStore.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
+        public static IKernel CreatePublicKernel()
+        {
+            return CreateKernel();
+        }
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
