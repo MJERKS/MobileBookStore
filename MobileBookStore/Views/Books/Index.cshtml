@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Book List";
+}
+@model IEnumerable<MobileBookStore.Model.Entities.Book>
+
+<div class="jumbotron">
+    <h1>Books</h1>
+</div>
+
+<div class="row">
+    <h2>Book List</h2>
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Author
+                </td>
+                <td>
+                    @item.CreatedOn
+                </td>
+            </tr>
+        }
+    </table>
+</div>

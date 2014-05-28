@@ -12,43 +12,8 @@ namespace MobileBookStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IBookService bookService;
-
-        public HomeController(IBookService bookService)
-        {
-            this.bookService = bookService;
-        }
-
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            if (bookService == null)
-            {
-                ViewBag.Message = "repo is null";
-                return View();
-            }
-            var book = bookService.GetWhatEverBook();
-
-            if (book != null)
-            {
-                ViewBag.Message = book.ToString();
-            }
-            else
-            {
-                ViewBag.Message = "Stuff";
-            }
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

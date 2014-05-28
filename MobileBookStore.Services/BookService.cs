@@ -18,6 +18,11 @@ namespace MobileBookStore.Services
             this.repository = repository;
         }
 
+        public IEnumerable<Book> GetAllBooks()
+        {
+            return repository.AsQueryable<Book>().AsEnumerable();
+        }
+
         public Book GetWhatEverBook()
         {
             return repository.FirstOrDefault<Book>(x => x.Id != 0);
