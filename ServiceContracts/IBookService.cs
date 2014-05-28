@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MobileBookStore.Model.Entities;
 
-namespace ServiceContracts
+namespace MobileBookStore.ServiceContracts
 {
-    interface IBookService
+    public interface IBookService
     {
+        Book GetWhatEverBook();
     }
 }

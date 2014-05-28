@@ -1,6 +1,8 @@
 using MobileBookStore.Data;
 using MobileBookStore.Data.DataContext;
 using MobileBookStore.DataContracts;
+using MobileBookStore.ServiceContracts;
+using MobileBookStore.Services;
 using MobileBookStore.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MobileBookStore.App_Start.NinjectWebCommon), "Start")]
@@ -69,6 +71,7 @@ namespace MobileBookStore.App_Start
             kernel.Bind<ISessionFactoryProvider>().To<SessionFactoryProvider>().InSingletonScope();
             kernel.Bind<IPrincipalAccessor>().To<WebPrincipalAccessor>().InSingletonScope();
 
+            kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
             kernel.Bind<IRepository>().To<Repository>().InRequestScope();
         }        
     }

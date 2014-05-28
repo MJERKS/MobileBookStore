@@ -5,18 +5,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MobileBookStore.DataContracts;
-using MobileBookStore.Data;
+using MobileBookStore.ServiceContracts;
 using MobileBookStore.Model.Entities;
 
 namespace MobileBookStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository repository;
+        private readonly IBookService bookService;
 
-        public HomeController(IRepository repository)
+        public HomeController(IBookService bookService)
         {
-            this.repository = repository;
+            this.bookService = bookService;
         }
 
         public ActionResult Index()
@@ -26,14 +26,21 @@ namespace MobileBookStore.Controllers
 
         public ActionResult About()
         {
-            if (repository == null)
+            if (bookService == null)
             {
                 ViewBag.Message = "repo is null";
                 return View();
             }
-            var book = repository.FirstOrDefault<Book>(x => x.Id == 2);
+            var book = bookService.GetWhatEverBook();
 
-            ViewBag.Message = book.ToString();
+            if (book != null)
+            {
+                ViewBag.Message = book.ToString();
+            }
+            else
+            {
+                ViewBag.Message = "Stuff";
+            }
 
             return View();
         }

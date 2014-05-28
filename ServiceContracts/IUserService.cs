@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceContracts
+namespace MobileBookStore.ServiceContracts
 {
-    interface IUserService
+    public interface IUserService
     {
     }
 }
