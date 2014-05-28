@@ -71,7 +71,7 @@ namespace MobileBookStore.App_Start
             kernel.Bind<ISessionFactoryProvider>().To<SessionFactoryProvider>().InSingletonScope();
             kernel.Bind<IPrincipalAccessor>().To<WebPrincipalAccessor>().InSingletonScope();
 
-            kernel.Bind<IBookService>().To<BookService>().InSingletonScope();
+            kernel.Bind<IBookService>().To<BookService>().InRequestScope();
             kernel.Bind<IRepository>().To<Repository>().InRequestScope();
         }        
     }
