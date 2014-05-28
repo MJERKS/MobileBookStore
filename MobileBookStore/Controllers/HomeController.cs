@@ -12,7 +12,7 @@ namespace MobileBookStore.Controllers
 {
     public class HomeController : Controller
     {
-        public IRepository repository { get; set; }
+        private readonly IRepository repository;
 
         public HomeController(IRepository repository)
         {
@@ -31,7 +31,7 @@ namespace MobileBookStore.Controllers
                 ViewBag.Message = "repo is null";
                 return View();
             }
-            var book = repository.FirstOrDefault<Book>(x => x.Id == 1);
+            var book = repository.FirstOrDefault<Book>(x => x.Id == 2);
 
             ViewBag.Message = book.ToString();
 
