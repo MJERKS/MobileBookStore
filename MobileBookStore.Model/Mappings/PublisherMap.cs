@@ -15,7 +15,7 @@ namespace MobileBookStore.Model.Mappings
         public PublisherMap()
         {
             Schema("dbo");
-            Table("Book");
+            Table("Publisher");
 
             References(x => x.UserId);
             Map(x => x.CompanyName).Not.Nullable();
