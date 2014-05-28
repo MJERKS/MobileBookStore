@@ -17,9 +17,10 @@ namespace MobileBookStore.Model.Mappings
             Schema("dbo");
             Table("Publisher");
 
-            References(x => x.UserId);
+            Map(x => x.UserId);
             Map(x => x.CompanyName).Not.Nullable();
 
+            References(x => x.User);
             HasMany(x => x.PublishedBooks)
                 .Cascade.All();
         }
