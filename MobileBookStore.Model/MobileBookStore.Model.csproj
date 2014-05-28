@@ -51,12 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="EntityMapBase.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Mappings\BookMap.cs" />
+    <Compile Include="Mappings\PublisherMap.cs" />
     <Compile Include="Mappings\TransactionMap.cs" />
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="PersistentEntityBase.cs" />
