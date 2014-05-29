@@ -14,6 +14,9 @@ namespace MobileBookStore.Controllers
     {
         public ActionResult Index()
         {
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Books");
+
             return View();
         }
     }
