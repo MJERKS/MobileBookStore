@@ -18,6 +18,7 @@ namespace MobileBookStore.Controllers
             this.bookService = bookService;
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             var books = bookService.GetAllBooks();
