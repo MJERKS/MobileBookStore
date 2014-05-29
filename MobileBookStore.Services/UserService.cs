@@ -20,6 +20,11 @@ namespace MobileBookStore.Services
             this.repository = repository;
         }
 
+        public IEnumerable<User> GetAllUsers()
+        {
+            return repository.AsQueryable<User>().AsEnumerable();
+        }
+
         public User GetUser(String username)
         {
             return repository.FirstOrDefault<User>(x => x.UserName == username);
@@ -33,17 +38,20 @@ namespace MobileBookStore.Services
             return repository.FirstOrDefault<User>(x => x.UserName == username && x.PasswordHash == passwordHash);
         }
 
-        public User CreateUser(String username, String password, String realname)
+        public User CreateUser(String username, String password, String realname, String email)
         {
+            var rand = new Random();
             var hasher = SHA256.Create();
             var passwordHash = Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password)));
 
             var user = new User()
             {
-                Email = username,
+                Email = email,
                 UserName = username,
                 RealName = realname,
-                PasswordHash = passwordHash
+                PasswordHash = passwordHash,
+                CreatedOn = DateTime.Now, // be šito irgi (turi but date between 1753m. ir 9999m.)
+                //Id = rand.Next(0, 2147483647), //be šito sako kad err mappinime, wtf, should be fixed somehow...
             };
 
             repository.Save(user);

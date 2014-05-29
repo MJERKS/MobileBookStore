@@ -13,7 +13,7 @@ namespace MobileBookStore.Model.Mappings
         public UserMap()
         {
             Schema("dbo");
-            Table("User");
+            Table("`User`");
 
             Map(x => x.UserName).Not.Nullable();
             Map(x => x.PasswordHash).Not.Nullable();
