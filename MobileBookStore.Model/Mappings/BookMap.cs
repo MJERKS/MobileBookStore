@@ -23,7 +23,7 @@ namespace MobileBookStore.Model.Mappings
             Map(x => x.PageCount).Not.Nullable();
             Map(x => x.Price).Not.Nullable();
 
-            References(x => x.Publisher);
+            //References(x => x.Publisher);
         }
     }
 }

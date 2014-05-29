@@ -43,12 +43,13 @@ namespace MobileBookStore.Tests.Entities
 
             var book = new Book()
             {
+                PublisherId = publisher.Id,
                 Author = "test-title",
                 FilePath = "file-path",
                 PageCount = 12,
                 Price = 10,
                 Title = "test",
-                CreatedOn = new DateTime(2010, 1, 1)
+                CreatedOn = new DateTime(2010, 1, 1),
             };
             repository.Save(book);
 

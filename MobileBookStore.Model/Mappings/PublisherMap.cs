@@ -20,7 +20,7 @@ namespace MobileBookStore.Model.Mappings
             Map(x => x.UserId);
             Map(x => x.CompanyName).Not.Nullable();
 
-            References(x => x.User);
+            //References(x => x.User);
             HasMany(x => x.PublishedBooks)
                 .Cascade.All();
         }

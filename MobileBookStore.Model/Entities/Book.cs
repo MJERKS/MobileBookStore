@@ -20,6 +20,6 @@ namespace MobileBookStore.Model.Entities
 
         public virtual int Price { get; set; }
 
-        public virtual Publisher Publisher { get; set; } 
+        //public virtual Publisher Publisher { get; set; } 
     }
 }

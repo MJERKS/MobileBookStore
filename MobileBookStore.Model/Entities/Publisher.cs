@@ -14,7 +14,7 @@ namespace MobileBookStore.Model.Entities
 
         public virtual IList<Book> PublishedBooks { get; set; }
 
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
 
         public Publisher()
         {
