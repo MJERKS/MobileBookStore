@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\DataContracts\MobileBookStore.DataContracts.csproj">
+    <ProjectReference Include="..\MobileBookStore.DataContracts\MobileBookStore.DataContracts.csproj">
       <Project>{0906da04-fbf2-440e-92d2-72025e45e4a0}</Project>
       <Name>MobileBookStore.DataContracts</Name>
     </ProjectReference>
@@ -53,7 +53,7 @@
       <Project>{5ED31EAA-0E56-474E-BBFD-2DE480A57657}</Project>
       <Name>MobileBookStore.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServiceContracts\MobileBookStore.ServiceContracts.csproj">
+    <ProjectReference Include="..\MobileBookStore.ServiceContracts\MobileBookStore.ServiceContracts.csproj">
       <Project>{ACF4520D-CE02-49C3-9AC1-0E2B0B28D2DF}</Project>
       <Name>MobileBookStore.ServiceContracts</Name>
     </ProjectReference>

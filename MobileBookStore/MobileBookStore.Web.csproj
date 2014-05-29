@@ -262,7 +262,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataContracts\MobileBookStore.DataContracts.csproj">
+    <ProjectReference Include="..\MobileBookStore.DataContracts\MobileBookStore.DataContracts.csproj">
       <Project>{0906da04-fbf2-440e-92d2-72025e45e4a0}</Project>
       <Name>MobileBookStore.DataContracts</Name>
     </ProjectReference>
@@ -278,7 +278,7 @@
       <Project>{18caea81-524b-40de-b0c6-ba6757cf56cc}</Project>
       <Name>MobileBookStore.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServiceContracts\MobileBookStore.ServiceContracts.csproj">
+    <ProjectReference Include="..\MobileBookStore.ServiceContracts\MobileBookStore.ServiceContracts.csproj">
       <Project>{acf4520d-ce02-49c3-9ac1-0e2b0b28d2df}</Project>
       <Name>MobileBookStore.ServiceContracts</Name>
     </ProjectReference>

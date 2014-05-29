@@ -19,5 +19,7 @@ namespace MobileBookStore.Model.Entities
         public virtual int PageCount { get; set; }
 
         public virtual int Price { get; set; }
+
+        //public virtual Publisher Publisher { get; set; } 
     }
 }

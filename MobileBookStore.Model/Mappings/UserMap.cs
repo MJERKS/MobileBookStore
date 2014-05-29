@@ -19,6 +19,16 @@ namespace MobileBookStore.Model.Mappings
             Map(x => x.PasswordHash).Not.Nullable();
             Map(x => x.RealName).Not.Nullable();
             Map(x => x.Email).Not.Nullable();
+
+            HasManyToMany(x => x.BoughtBooks)
+                .Cascade.All()
+                .Table("User_BoughtBooks");
+
+            HasMany(x => x.Transactions)
+                .Cascade.All();
+
+            //References(x => x.Publisher)
+            //    .Cascade.All();
         }
     }
 }

@@ -18,11 +18,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.Model", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.Data", "MobileBookStore.Data\MobileBookStore.Data.csproj", "{31275ECD-4DE4-4B5E-B178-4C502B1CDFF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.DataContracts", "DataContracts\MobileBookStore.DataContracts.csproj", "{0906DA04-FBF2-440E-92D2-72025E45E4A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.DataContracts", "MobileBookStore.DataContracts\MobileBookStore.DataContracts.csproj", "{0906DA04-FBF2-440E-92D2-72025E45E4A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.Service", "MobileBookStore.Services\MobileBookStore.Service.csproj", "{18CAEA81-524B-40DE-B0C6-BA6757CF56CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.ServiceContracts", "ServiceContracts\MobileBookStore.ServiceContracts.csproj", "{ACF4520D-CE02-49C3-9AC1-0E2B0B28D2DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileBookStore.ServiceContracts", "MobileBookStore.ServiceContracts\MobileBookStore.ServiceContracts.csproj", "{ACF4520D-CE02-49C3-9AC1-0E2B0B28D2DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C34E75E9-EB33-433E-A98E-492C5D7632C1}"
 	ProjectSection(SolutionItems) = preProject

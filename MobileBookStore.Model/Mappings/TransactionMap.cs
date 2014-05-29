@@ -17,6 +17,10 @@ namespace MobileBookStore.Model.Mappings
             Map(x => x.UserId).Not.Nullable();
             Map(x => x.BookId).Not.Nullable();
             Map(x => x.Amount).Not.Nullable();
+
+            //References(x => x.User);
+            //References(x => x.Book);
+
         }
     }
 }
