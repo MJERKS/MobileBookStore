@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MobileBookStore.Model.Entities;
 using MobileBookStore.ServiceContracts;
 
@@ -30,14 +31,12 @@ namespace MobileBookStore.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
-            //var users = userService.GetAllUsers();
-            //var something = users.ToList();
-            var un = userService.GetUser(user.UserName); //because this one doesnt work for some reason =/
-            //var un = users.ToList().FirstOrDefault(u => u.UserName == user.UserName); // doesn't work either, lol wtf
+            var un = userService.GetUser(user.UserName);
             if (un == null)
             {
                 User usr = userService.CreateUser(user.UserName, user.PasswordHash, user.RealName, user.Email);
-                //return RedirectToAction("Index", "Home");
+                FormsAuthentication.SetAuthCookie(user.UserName, true);
+
                 return RedirectToAction("Result", "Login");
             }
             else
@@ -60,6 +59,7 @@ namespace MobileBookStore.Controllers
             {
                 //SUCCESS;
                 //return RedirectToAction("Index", "Home");
+                FormsAuthentication.SetAuthCookie(user.UserName, true);
                 return RedirectToAction("Result", "Login");
             }
             if (userService.GetUser(user.UserName) == null)
