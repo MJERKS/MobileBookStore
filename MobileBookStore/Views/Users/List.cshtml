@@ -22,9 +22,6 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PasswordHash)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Administrator)
         </th>
         <th>
@@ -46,9 +43,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PasswordHash)
         </td>
         <td>
             @(item.Administrator != null ? "Yes" : "No")
