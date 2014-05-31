@@ -237,6 +237,8 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Users\Result.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Read.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

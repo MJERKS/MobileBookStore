@@ -13,5 +13,6 @@ namespace MobileBookStore.ServiceContracts
         User GetUser(String username, String password);
         User CreateUser(String username, String password, String realname, String email);
         IEnumerable<User> GetAllUsers();
+        IEnumerable<Publisher> GetAllPublishers();
     }
 }

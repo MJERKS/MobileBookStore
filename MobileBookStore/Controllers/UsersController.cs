@@ -69,8 +69,6 @@ namespace MobileBookStore.Controllers
             var usr = userService.GetUser(user.UserName, user.PasswordHash);
             if (usr != null)
             {
-                //SUCCESS;
-                //return RedirectToAction("Index", "Home");
                 FormsAuthentication.SetAuthCookie(user.UserName, true);
                 return RedirectToAction("Index", "Books");
             }

@@ -24,7 +24,10 @@ namespace MobileBookStore.Services
         {
             return repository.AsQueryable<User>().AsEnumerable();
         }
-
+        public IEnumerable<Model.Entities.Publisher> GetAllPublishers()
+        {
+            return repository.AsQueryable<Model.Entities.Publisher>().AsEnumerable();
+        }
         public User GetUser(String username)
         {
             return repository.FirstOrDefault<User>(x => x.UserName == username);
