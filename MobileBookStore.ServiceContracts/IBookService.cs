@@ -8,5 +8,7 @@ namespace MobileBookStore.ServiceContracts
     {
         Book GetWhatEverBook();
         IEnumerable<Book> GetAllBooks();
+
+        Book CreateBook(Book book);
     }
 }

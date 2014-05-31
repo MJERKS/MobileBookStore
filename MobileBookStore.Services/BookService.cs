@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MobileBookStore.DataContracts;
@@ -26,6 +27,15 @@ namespace MobileBookStore.Services
         public Book GetWhatEverBook()
         {
             return repository.FirstOrDefault<Book>(x => x.Id != 0);
+        }
+
+        public Book CreateBook(Book book)
+        {
+            book.CreatedOn = DateTime.Now;
+            //book.Id = 1001;
+            //book.
+            repository.Save(book);
+            return book; //lol
         }
     }
 }
