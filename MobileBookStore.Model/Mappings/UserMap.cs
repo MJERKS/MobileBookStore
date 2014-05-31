@@ -25,6 +25,8 @@ namespace MobileBookStore.Model.Mappings
                 .Cascade.All()
                 .Table("User_BoughtBooks");
 
+            HasOne(x => x.Administrator).PropertyRef(x => x.User);
+
             //References(x => x.Administrator).Column("UserId").PropertyRef(d => d.User);
 
             //HasOne(x => x.Administrator);

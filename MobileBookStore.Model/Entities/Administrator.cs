@@ -8,6 +8,7 @@ namespace MobileBookStore.Model.Entities
 {
     public class Administrator : PersistentEntityBase<Administrator>
     {
+        public virtual int UserId { get; set; }
         public virtual User User { get; set; }
     }
 }
