@@ -14,15 +14,11 @@ namespace MobileBookStore.Model.Mappings
     
         public PublisherMap()
         {
-            Schema("dbo");
-            Table("Publisher");
-
-            Map(x => x.UserId);
+            //Map(x => x.UserId);
             Map(x => x.CompanyName).Not.Nullable();
 
-            //References(x => x.User);
-            HasMany(x => x.PublishedBooks)
-                .Cascade.All();
+            References(x => x.User).Column("UserId");
+            HasMany(x => x.PublishedBooks).KeyColumn("PublisherId").Cascade.DeleteOrphan();
         }
     }
 }

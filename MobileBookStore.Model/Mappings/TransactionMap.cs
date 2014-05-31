@@ -11,9 +11,6 @@ namespace MobileBookStore.Model.Mappings
     {
         public TransactionMap()
         {
-            Schema("dbo");
-            Table("Transaction");
-
             Map(x => x.UserId).Not.Nullable();
             Map(x => x.BookId).Not.Nullable();
             Map(x => x.Amount).Not.Nullable();

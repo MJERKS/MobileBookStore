@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MobileBookStore.DataContracts;
 using MobileBookStore.Model.Entities;
 using MobileBookStore.ServiceContracts;
+using Publisher = MobileBookStore.Model.Entities.Publisher;
 
 namespace MobileBookStore.Services
 {
@@ -24,10 +25,17 @@ namespace MobileBookStore.Services
         {
             return repository.AsQueryable<User>().AsEnumerable();
         }
+
         public IEnumerable<Model.Entities.Publisher> GetAllPublishers()
         {
             return repository.AsQueryable<Model.Entities.Publisher>().AsEnumerable();
         }
+
+        public User GetUser(int userid)
+        {
+            return repository.FirstOrDefault<User>(x => x.Id == userid);
+        }
+
         public User GetUser(String username)
         {
             return repository.FirstOrDefault<User>(x => x.UserName == username);
@@ -59,6 +67,26 @@ namespace MobileBookStore.Services
             repository.Save(user);
 
             return user;
+        }
+
+        public void DeleteUser(User user)
+        {
+            repository.Delete(user);
+            repository.Commit();
+        }
+
+        public void PromoteToPublisher(User user)
+        {
+            var publisher = new Publisher()
+            {
+                User = user,
+                UserId = user.Id,
+                CreatedOn = DateTime.Now,
+                CompanyName = "A new company name"
+            };
+
+            repository.Save(publisher);
+            repository.Commit();
         }
     }
 }

@@ -13,9 +13,6 @@ namespace MobileBookStore.Model.Mappings
     {
         public UserMap()
         {
-            Schema("dbo");
-            Table("`User`");
-
             Map(x => x.UserName).Not.Nullable();
             Map(x => x.PasswordHash).Not.Nullable();
             Map(x => x.RealName).Not.Nullable();
@@ -25,17 +22,8 @@ namespace MobileBookStore.Model.Mappings
                 .Cascade.All()
                 .Table("User_BoughtBooks");
 
-            HasOne(x => x.Administrator).PropertyRef(x => x.User);
-
-            //References(x => x.Administrator).Column("UserId").PropertyRef(d => d.User);
-
-            //HasOne(x => x.Administrator);
-
-            //References(x => x.Transactions)
-            //    .Cascade.All();
-
-            //References(x => x.Publisher)
-            //    .Cascade.All();
+            HasOne(x => x.Administrator).PropertyRef(x => x.User).Cascade.Delete();
+            HasOne(x => x.Publisher).PropertyRef(x => x.User).Cascade.Delete();
         }
     }
 }

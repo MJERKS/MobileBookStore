@@ -11,7 +11,7 @@ namespace MobileBookStore.Model.Mappings
     {
         public AdministratorMap()
         {
-            Map(x => x.UserId).Not.Nullable();
+            //Map(x => x.UserId).Not.Nullable();
             References(x => x.User, "UserId");
         }
     }

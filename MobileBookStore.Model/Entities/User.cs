@@ -24,11 +24,11 @@ namespace MobileBookStore.Model.Entities
 
         public virtual Administrator Administrator { get; set; }
 
+        public virtual Publisher Publisher { get; set; }
+
         public virtual IList<Book> BoughtBooks { get; set; }
 
         public virtual IList<Transaction> Transactions { get; set; }
-
-        //public virtual Publisher Publisher { get; set; }
 
         public User()
         {
@@ -46,11 +46,5 @@ namespace MobileBookStore.Model.Entities
             transaction.UserId = this.Id;
             Transactions.Add(transaction);
         }
-
-        //public virtual void BecomePublisher(Publisher publisher)
-        //{
-        //    publisher.UserId = this.Id;
-        //    this.Publisher = publisher;
-        //}
     }
 }

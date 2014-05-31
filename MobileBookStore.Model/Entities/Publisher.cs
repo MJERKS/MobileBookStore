@@ -10,11 +10,11 @@ namespace MobileBookStore.Model.Entities
     {
         public virtual int UserId { get; set; }
 
+        public virtual User User { get; set; }
+
         public virtual String CompanyName { get; set; }
 
         public virtual IList<Book> PublishedBooks { get; set; }
-
-        //public virtual User User { get; set; }
 
         public Publisher()
         {

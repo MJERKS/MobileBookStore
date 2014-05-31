@@ -10,6 +10,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
@@ -21,11 +24,20 @@
         <th>
             @Html.DisplayNameFor(model => model.PasswordHash)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
@@ -39,8 +51,24 @@
             @Html.DisplayFor(modelItem => item.PasswordHash)
         </td>
         <td>
-            @Html.ActionLink("Promote To Publisher", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @(item.Administrator != null ? "Yes" : "No")
+        </td>
+        <td>
+            @(item.Publisher != null ? "Yes" : "No")
+        </td>
+        <td>
+            @if (item.Publisher == null)
+            {
+                @Html.ActionLink("Promote To Publisher", "Promote", new { id=item.Id }) 
+            }
+            @if (item.Publisher == null && item.Administrator == null)
+            {
+                <span>|</span>
+            }
+            @if (item.Administrator == null)
+            {
+                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+            }
         </td>
     </tr>
 }

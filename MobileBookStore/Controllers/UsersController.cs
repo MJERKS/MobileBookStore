@@ -114,6 +114,32 @@ namespace MobileBookStore.Controllers
             return View(users);
         }
 
+        [Authorize]
+        public ActionResult Promote(int id)
+        {
+            var usr = userService.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            if (usr.Administrator == null)
+                return RedirectToAction("Index", "Books");
+
+            var user = userService.GetUser(id);
+            userService.PromoteToPublisher(user);
+
+            return RedirectToAction("List");
+        }
+
+        [Authorize]
+        public ActionResult Delete(int id)
+        {
+            var usr = userService.GetUser(System.Web.HttpContext.Current.User.Identity.Name);
+            if (usr.Administrator == null)
+                return RedirectToAction("Index", "Books");
+
+            var user = userService.GetUser(id);
+            userService.DeleteUser(user);
+
+            return RedirectToAction("List");
+        }
+
         public ActionResult Result()
         {
             return View();

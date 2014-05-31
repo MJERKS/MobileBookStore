@@ -13,17 +13,14 @@ namespace MobileBookStore.Model.Mappings
     {
         public BookMap()
         {
-            Schema("dbo");
-            Table("Book");
-
-            Map(x => x.PublisherId).Not.Nullable();
+            //Map(x => x.PublisherId).Not.Nullable();
             Map(x => x.Author).Not.Nullable();
             Map(x => x.Title).Not.Nullable();
             Map(x => x.FilePath).Not.Nullable();
             Map(x => x.PageCount).Not.Nullable();
             Map(x => x.Price).Not.Nullable();
 
-            //References(x => x.Publisher);
+            References(x => x.Publisher).Column("PublisherId");
         }
     }
 }
