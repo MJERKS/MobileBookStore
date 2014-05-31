@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Type;
 
 namespace MobileBookStore.Model.Mappings
 {
@@ -24,8 +25,12 @@ namespace MobileBookStore.Model.Mappings
                 .Cascade.All()
                 .Table("User_BoughtBooks");
 
-            HasMany(x => x.Transactions)
-                .Cascade.All();
+            //References(x => x.Administrator).Column("UserId").PropertyRef(d => d.User);
+
+            //HasOne(x => x.Administrator);
+
+            //References(x => x.Transactions)
+            //    .Cascade.All();
 
             //References(x => x.Publisher)
             //    .Cascade.All();

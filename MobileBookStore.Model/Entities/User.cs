@@ -22,6 +22,7 @@ namespace MobileBookStore.Model.Entities
         [DisplayName("Password")]
         public virtual String PasswordHash { get; set; }
 
+        public virtual Administrator Administrator { get; set; }
 
         public virtual IList<Book> BoughtBooks { get; set; }
 

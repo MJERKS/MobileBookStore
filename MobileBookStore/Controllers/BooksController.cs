@@ -22,7 +22,6 @@ namespace MobileBookStore.Controllers
         public ActionResult Index()
         {
             var books = bookService.GetAllBooks();
-            //var books = new List<Book>() {bookService.GetWhatEverBook()};
             return View(books);
         }
     }

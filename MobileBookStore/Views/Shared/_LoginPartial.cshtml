@@ -9,6 +9,7 @@
         <li>
             <a href="#">Hello @User.Identity.GetUserName()!</a>
         </li>
+        @Html.Action("LoginHeader", "Users")
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }

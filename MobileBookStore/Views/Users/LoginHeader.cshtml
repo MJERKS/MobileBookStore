@@ -1,0 +1,6 @@
+﻿@model MobileBookStore.Models.LoginHeaderViewModel
+
+@if (Model.isAdmin)
+{
+    <li>@Html.ActionLink("Admin Users", "List", "Users", routeValues: null, htmlAttributes: new { id = "usersLink" })</li>
+}

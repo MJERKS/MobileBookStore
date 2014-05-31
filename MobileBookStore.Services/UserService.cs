@@ -50,8 +50,7 @@ namespace MobileBookStore.Services
                 UserName = username,
                 RealName = realname,
                 PasswordHash = passwordHash,
-                CreatedOn = DateTime.Now, // be šito irgi (turi but date between 1753m. ir 9999m.)
-                //Id = rand.Next(0, 2147483647), //be šito sako kad err mappinime, wtf, should be fixed somehow...
+                CreatedOn = DateTime.Now
             };
 
             repository.Save(user);
