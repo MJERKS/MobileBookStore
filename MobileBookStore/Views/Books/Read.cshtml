@@ -11,11 +11,11 @@
 	<hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PublisherId)
+            @Html.DisplayNameFor(model => model.Publisher)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PublisherId)
+            @Html.DisplayFor(model => model.Publisher.CompanyName)
         </dd>
 
         <dt>
@@ -33,36 +33,11 @@
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FilePath)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FilePath)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PageCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PageCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
     </dl>
     
     @{string url = "http://docs.google.com/gview?url=" + @Model.FilePath + "&embedded=true";}
     <iframe src="@url" style="width:920px; height:650px;" frameborder="0"></iframe>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

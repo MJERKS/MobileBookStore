@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using MobileBookStore.Helpers;
 using MobileBookStore.Model.Entities;
 using MobileBookStore.ServiceContracts;
+using MobileBookStore.ViewModels;
 
 namespace MobileBookStore.Controllers
 {
@@ -55,8 +58,16 @@ namespace MobileBookStore.Controllers
 
         public ActionResult Read(Book book)
         {
-            //http://classes.soe.ucsc.edu/cmps112/Spring03/languages/prolog/PrologIntro.pdf
-            return View(book);
+            var rBook = bookService.GetBookById(book.Id); //Nes book Publisher Null, nusimuša bindings.
+            return View(rBook);
+        }
+
+        public ActionResult Preview(Book book)
+        {
+            var appPath = Request.PhysicalApplicationPath;
+            var rBook = bookService.GetBookById(book.Id);
+            var list = FileManager.GeneratePreviewImages(rBook, appPath);
+            return View(new PreviewViewModel(rBook, list, FileManager.ImageFolder));
         }
     }
 }

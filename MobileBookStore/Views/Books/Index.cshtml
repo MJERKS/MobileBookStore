@@ -13,10 +13,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Author)
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Author)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PageCount)
@@ -24,30 +24,38 @@
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PageCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Preview", "Preview", item) |
-            @Html.ActionLink("Read", "Read", item) |
-            @Html.ActionLink("Buy", "Buy", item)|
-            @Html.ActionLink("Delete", "Delete", item)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher.CompanyName)
+            </td>
+            <td>
+                @Html.ActionLink("Preview", "Preview", item, new {onclick = "this.innerText = 'Please wait..';"}) |
+                @Html.ActionLink("Read", "Read", item) |
+                @Html.ActionLink("Buy", "Buy", item) |
+                @Html.ActionLink("Delete", "Delete", item)
+            </td>
+        </tr>
+    }
 
 </table>
+

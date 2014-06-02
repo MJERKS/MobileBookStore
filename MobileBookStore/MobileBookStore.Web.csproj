@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Pdf">
+      <HintPath>..\packages\Aspose.Pdf.9.2.1\lib\net40-client\Aspose.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging">
       <HintPath>..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
@@ -186,6 +189,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileManager.cs" />
     <Compile Include="Membership\UserMembershipProvider.cs" />
     <Compile Include="Membership\UserRoleProvider.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Models\LoginHeaderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PreviewViewModel.cs" />
     <Compile Include="WebPrincipalAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +247,7 @@
     <Content Include="Views\Books\Read.cshtml" />
     <Content Include="Views\Users\List.cshtml" />
     <Content Include="Views\Users\LoginHeader.cshtml" />
+    <Content Include="Views\Books\Preview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
