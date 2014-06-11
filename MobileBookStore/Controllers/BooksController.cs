@@ -48,17 +48,11 @@ namespace MobileBookStore.Controllers
             }
 
             return RedirectToAction("Index", "Books");
-            
-            /*else
-            {
-                ModelState.AddModelError("UserName", "Sorry, this username is already taken!");
-                return View();
-            }*/
         }
 
         public ActionResult Read(Book book)
         {
-            var rBook = bookService.GetBookById(book.Id); //Nes book Publisher Null, nusimuša bindings.
+            var rBook = bookService.GetBookById(book.Id);
             return View(rBook);
         }
 

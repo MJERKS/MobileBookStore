@@ -32,10 +32,8 @@ namespace MobileBookStore.Services
         public Book CreateBook(Book book)
         {
             book.CreatedOn = DateTime.Now;
-            //book.Id = 1001;
-            //book.
             repository.Save(book);
-            return book; //lol
+            return book;
         }
     }
 }
