@@ -28,12 +28,23 @@ namespace MobileBookStore.Services
         {
             return repository.FirstOrDefault<Book>(x => x.Id != 0);
         }
+        public Book GetBookById(int id)
+        {
+            return repository.FirstOrDefault<Book>(x => x.Id == id);
+        }
+
+        public void DeleteBook(Book book)
+        {
+            repository.Delete(book);
+            repository.Commit();
+        }
 
         public Book CreateBook(Book book)
         {
             book.CreatedOn = DateTime.Now;
             repository.Save(book);
-            return book;
+            repository.Commit();
+            return book; //lol
         }
     }
 }
