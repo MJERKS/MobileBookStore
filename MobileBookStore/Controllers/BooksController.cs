@@ -69,5 +69,11 @@ namespace MobileBookStore.Controllers
             var list = FileManager.GeneratePreviewImages(rBook, appPath);
             return View(new PreviewViewModel(rBook, list, FileManager.ImageFolder));
         }
+
+        public ActionResult Delete(Book book)
+        {
+            bookService.DeleteBook(book);
+            return RedirectToAction("Index", "Books");
+        }
     }
 }

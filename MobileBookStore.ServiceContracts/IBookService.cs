@@ -7,8 +7,10 @@ namespace MobileBookStore.ServiceContracts
     public interface IBookService
     {
         Book GetWhatEverBook();
+        Book GetBookById(int id);
         IEnumerable<Book> GetAllBooks();
 
         Book CreateBook(Book book);
+        void DeleteBook(Book book);
     }
 }
