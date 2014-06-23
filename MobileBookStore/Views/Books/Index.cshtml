@@ -1,5 +1,5 @@
 ﻿@using MobileBookStore.Model.Entities
-@model IEnumerable<MobileBookStore.Model.Entities.Book>
+@model MobileBookStore.Models.BookListModel
 
 @{
     ViewBag.Title = "Book List";
@@ -8,29 +8,32 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (Model.publisher != null || Model.isAdmin)
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.bookList.First().Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Author)
+            @Html.DisplayNameFor(model => model.bookList.First().Author)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PageCount)
+            @Html.DisplayNameFor(model => model.bookList.First().PageCount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.bookList.First().Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Publisher)
+            @Html.DisplayNameFor(model => model.bookList.First().Publisher)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model) {
+    @foreach (var item in Model.bookList) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -49,10 +52,21 @@
                 @Html.DisplayFor(modelItem => item.Publisher.CompanyName)
             </td>
             <td>
-                @Html.ActionLink("Preview", "Preview", item, new {onclick = "this.innerText = 'Please wait..';"}) |
-                @Html.ActionLink("Read", "Read", item) |
-                @Html.ActionLink("Buy", "Buy", item) |
-                @Html.ActionLink("Delete", "Delete", item)
+                @Html.ActionLink("Preview", "Preview", new { bookId = item.Id }, new { onclick = "this.innerText = 'Please wait..';" })
+                @if (item.Price == 0 || item.Publisher == Model.publisher || Model.isAdmin)
+                {
+                    <span>|</span>
+                    @Html.ActionLink("Read", "Read", new { bookId = item.Id })
+                }
+                @if (item.Price > 0 && item.Publisher != Model.publisher && !Model.isAdmin)
+                {
+                    <span>|</span>
+                    @Html.ActionLink("Buy", "Buy", new { bookId = item.Id })
+                }
+                @if ((Model.publisher != null && item.Publisher == Model.publisher) || Model.isAdmin) {
+                    <span>|</span>
+                    @Html.ActionLink("Delete", "Delete", new { bookId = item.Id  }) 
+                }
             </td>
         </tr>
     }

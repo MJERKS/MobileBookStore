@@ -5,10 +5,12 @@ using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Microsoft.AspNet.Identity;
 using MobileBookStore.Helpers;
 using MobileBookStore.Model.Entities;
 using MobileBookStore.ServiceContracts;
 using MobileBookStore.ViewModels;
+using MobileBookStore.Models;
 
 namespace MobileBookStore.Controllers
 {
@@ -28,46 +30,83 @@ namespace MobileBookStore.Controllers
         public ActionResult Index()
         {
             var books = bookService.GetAllBooks();
-            return View(books);
+            var model = new BookListModel { bookList = books, isAdmin = false };
+
+            var usr = userService.GetUser(System.Web.HttpContext.Current.User.Identity.GetUserName());
+            if (usr != null)
+            {
+                if (usr.Administrator != null)
+                    model.isAdmin = true;
+                if (usr.Publisher != null)
+                    model.publisher = usr.Publisher;
+            }
+
+            return View(model);
         }
 
 
         [Authorize]
         public ActionResult Create()
         {
-            var them = userService.GetAllPublishers().ToList();
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Book book)
         {
-            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            var usr = userService.GetUser(System.Web.HttpContext.Current.User.Identity.GetUserName());
+            if (usr != null)
             {
-                var bk = bookService.CreateBook(book);
+                if (usr.Administrator != null || usr.Publisher != null)
+                {
+                    if (usr.Publisher != null)
+                    {
+                        book.Publisher = usr.Publisher;
+                        book.PublisherId = usr.Publisher.Id;
+                    }
+                    bookService.CreateBook(book);
+                }
             }
 
             return RedirectToAction("Index", "Books");
         }
 
-        public ActionResult Read(Book book)
+        [Authorize]
+        public ActionResult Read(int bookId)
         {
-            var rBook = bookService.GetBookById(book.Id);
+            var rBook = bookService.GetBookById(bookId);
             return View(rBook);
         }
 
-        public ActionResult Preview(Book book)
+        [Authorize]
+        public ActionResult Preview(int bookId)
         {
             var appPath = Request.PhysicalApplicationPath;
-            var rBook = bookService.GetBookById(book.Id);
+            var rBook = bookService.GetBookById(bookId);
             var list = FileManager.GeneratePreviewImages(rBook, appPath);
             return View(new PreviewViewModel(rBook, list, FileManager.ImageFolder));
         }
 
-        public ActionResult Delete(Book book)
+        [Authorize]
+        public ActionResult Delete(int bookId)
         {
-            bookService.DeleteBook(book);
+            var usr = userService.GetUser(System.Web.HttpContext.Current.User.Identity.GetUserName());
+            if (usr != null)
+            {
+                var rBook = bookService.GetBookById(bookId);
+                if (usr.Administrator != null || (usr.Publisher != null && rBook.Publisher == usr.Publisher))
+                {
+                    bookService.DeleteBook(rBook);
+                }
+            }
             return RedirectToAction("Index", "Books");
+        }
+
+        [Authorize]
+        public ActionResult Buy(int bookId)
+        {
+            return View();
         }
     }
 }

@@ -193,6 +193,7 @@
     <Compile Include="Membership\UserMembershipProvider.cs" />
     <Compile Include="Membership\UserRoleProvider.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BookListModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginHeaderViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,6 +249,7 @@
     <Content Include="Views\Users\List.cshtml" />
     <Content Include="Views\Users\LoginHeader.cshtml" />
     <Content Include="Views\Books\Preview.cshtml" />
+    <Content Include="Views\Books\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
